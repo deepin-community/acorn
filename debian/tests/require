@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+for i in `ls */package.json`; do
+	NAME=`perl -000 -MJSON -lne '$a.=$_;END{$a=JSON::from_json($a);print $a->{name}}' $i`
+	echo "+ node -e require('$NAME')"
+	node -e "require('$NAME')"
+done

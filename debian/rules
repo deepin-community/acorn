@@ -1,0 +1,113 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+MANPAGES_TARGET := $(subst .1.xml,.1, $(wildcard debian/man/*.*.xml))
+NODE_SUBPACKAGE=$(shell find .  -maxdepth 1 -name 'node-*' -type d -print | sed s,./,,g)
+COMPONENTS=$(NODE_SUBPACKAGE)
+ACORN_COMPONENTS=acorn-walk acorn-loose
+PACKAGES_DOCS_DIR=$(COMPONENTS) node-acorn-walk node-acorn-loose
+ACORN_MAIN_PACKAGES=acorn $(ACORN_COMPONENTS)
+ACORN_ALL_COMPONENTS=node-acorn-walk node-acorn-loose $(COMPONENTS)
+MAIN_PACKAGE=node-acorn
+
+%:
+	dh $@ --with nodejs
+
+override_dh_auto_build:
+	# back link
+	set -e; for module in $(ACORN_COMPONENTS); do \
+		ln -s $$module node-$$module ;\
+	done
+	dh_auto_build --buildsystem=nodejs
+	@for dir in acorn acorn-walk acorn-loose; do \
+		echo "# Build $$dir"; \
+		echo "rollup -c $$dir/rollup.config.js"; \
+		rollup -c $$dir/rollup.config.js; \
+	done
+	@echo "# Build binary"
+	rollup -c acorn/rollup.config.bin.js
+
+# MANPAGES & DOC
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+override_dh_installman: $(MANPAGES_TARGET)
+	dh_installman
+else
+override_dh_installman:
+	@echo '**********************************************************'
+	@echo 'Skip man page create                                      '
+	@echo '**********************************************************'
+endif
+
+%.1: %.1.xml
+	# Create man page from DocBook XML
+	cd $(dir $@) && docbook2x-man --encoding=utf-8 --string-param header-3="$(SOURCE_DATE_EPOCH)" $(notdir $@).xml
+
+
+override_dh_installdocs:
+	#module-acorn-node/README.acorn-node.md
+	# manual building of copyright
+	mkdir -p debian/${MAIN_PACKAGE}/usr/share/doc/${MAIN_PACKAGE}
+	set -e; if test "X$(ACORN_ALL_COMPONENTS)" != X ; then \
+		for module in $(ACORN_ALL_COMPONENTS); do \
+			mkdir -p "debian/${MAIN_PACKAGE}/usr/share/doc/$$module"; \
+			ln -s "../${MAIN_PACKAGE}/copyright" "debian/${MAIN_PACKAGE}/usr/share/doc/$$module/copyright" ; \
+			ln -s "../$(MAIN_PACKAGE)" "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module/$(MAIN_PACKAGE)"; \
+			ln -s "../$$module" "debian/$(MAIN_PACKAGE)/usr/share/doc/$(MAIN_PACKAGE)/$$module"; \
+		done; \
+	else \
+		true; \
+	fi
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+	dh_installdocs --link-doc=node-acorn
+	# install
+	mkdir -p "debian/${MAIN_PACKAGE}/usr/share/doc/node-acorn";
+	install README.md debian/${MAIN_PACKAGE}/usr/share/doc/node-acorn
+	set -e; if test "X$(ACORN_ALL_COMPONENTS)" != X ; then \
+		for module in $(ACORN_ALL_COMPONENTS); do \
+			mkdir -p "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module"; \
+			find -H "$$module" -maxdepth 1 -iname '*.md' -and -not -iname 'license.md' -exec install {} "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module" \; ; \
+			(set -e ; cd "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module" && find -iname 'changelog.md' -exec mv {} changelog \;) ;  \
+		done; \
+	else \
+		true; \
+	fi
+	install acorn/*.md debian/$(MAIN_PACKAGE)/usr/share/doc/node-acorn/
+	# jdupes for doc
+	(set -e; cd debian/$(MAIN_PACKAGE)/usr/share/doc/; jdupes node-acorn $$(find . -maxdepth 1 -type d -not -name node-acorn) -l -z)
+else
+override_dh_installdocs:
+	@echo '**********************************************************'
+	@echo 'Skip dh_installdocs                                       '
+	@echo '**********************************************************'
+endif
+
+override_dh_installchangelogs:
+	# create changelog
+	if test "X$(PACKAGES_DOCS_DIR)" != X ; then \
+		for module in $(PACKAGES_DOCS_DIR); do \
+			mkdir -p "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module"; \
+			ln -s "../$(MAIN_PACKAGE)/changelog.Debian.gz" "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module/changelog.Debian.gz" ; \
+		done; \
+	else \
+		true; \
+	fi
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+	dh_installchangelogs
+	# jdupes for doc
+	(set -e; cd debian/$(MAIN_PACKAGE)/usr/share/doc/; jdupes node-acorn $$(find . -maxdepth 1 -type d -not -name node-acorn) -l -z)
+else
+	dh_installchangelogs
+endif
+
+
+override_dh_auto_clean:
+	set -e; for module in $(ACORN_COMPONENTS); do \
+		rm -f node-$$module ; \
+	done
+	rm -rf node_modules
+	rm -rf node-acorn-node/node_modules
+	dh_auto_clean -- --with nodejs

@@ -1,0 +1,556 @@
+acorn (8.5.0+ds+~cs24.17.6-5) unstable; urgency=medium
+
+  * Team upload
+  * Remove unexistent package in "Replace"
+  * Fix usr/bin install for dh-sequence-nodejs ≥ 0.9.78~
+
+ -- Yadd <yadd@debian.org>  Sat, 30 Oct 2021 09:07:49 +0200
+
+acorn (8.5.0+ds+~cs24.17.6-4) unstable; urgency=medium
+
+  * Team upload
+  * Fix name error in fields Breaks&Replace
+
+ -- Yadd <yadd@debian.org>  Thu, 28 Oct 2021 23:11:21 +0200
+
+acorn (8.5.0+ds+~cs24.17.6-3) unstable; urgency=medium
+
+  * Team upload
+
+  [ Mattia Rizzolo ]
+  * Fix mispelled section name s/oldlib/oldlibs/. (Closes: #996909)
+
+  [ Yadd ]
+  * Breaks+Replaces: node-debbundle-acorn (<< 8.5.0+ds+~cs24.17.6~)
+    (Closes: #997998)
+
+ -- Yadd <yadd@debian.org>  Thu, 28 Oct 2021 23:04:26 +0200
+
+acorn (8.5.0+ds+~cs24.17.6-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable
+
+ -- Yadd <yadd@debian.org>  Tue, 19 Oct 2021 15:12:20 +0200
+
+acorn (8.5.0+ds+~cs24.17.6-1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Bastien Roucariès ]
+  * Use symlink for node-debbundle-acorn
+  * Fix typo s/oldlib/oldlibs/g
+  * Remove old stuff before pkg-js-tools
+
+  [ Yadd ]
+  * Trim trailing whitespace.
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix filenamemangle
+  * Embed acorn-import-assertions
+  * New upstream version 8.5.0+ds+~cs24.17.6
+
+ -- Yadd <yadd@debian.org>  Sun, 17 Oct 2021 17:50:16 +0200
+
+acorn (8.5.0+ds+~cs23.9.6-2) experimental; urgency=medium
+
+  * Move files from node-debbundle to node-acorn
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 23 Sep 2021 12:42:58 +0000
+
+acorn (8.5.0+ds+~cs23.9.6-1) experimental; urgency=medium
+
+  [ Yadd ]
+  * Team upload
+  * New upstream version 8.2.2+ds+~cs23.9.6
+  * Refresh patches
+
+  [ Bastien Roucariès ]
+  * New version 8.5.0+ds+~cs23.9.6-1
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 18 Sep 2021 20:28:57 +0000
+
+acorn (8.1.1+ds+~cs23.9.6-1) experimental; urgency=medium
+
+  * Team upload
+  * New upstream version 8.1.1+ds+~cs23.9.6
+
+ -- Yadd <yadd@debian.org>  Wed, 14 Apr 2021 10:13:21 +0200
+
+acorn (8.1.0+ds+~cs23.9.6-1) experimental; urgency=medium
+
+  * Team upload
+  * debian/watch: fix GitHub tags regex
+  * New upstream version 8.1.0+ds+~cs23.9.6
+    Updates:
+     + acorn 8.1.0
+     + acorn-loose 8.0.2
+     + acorn-walk 8.0.2
+     + acorn-class-fields 1.0.0
+     + acorn-private-class-elements 1.0.0
+     + acorn-private-methods 1.0.0
+     + acorn-static-class-features 1.0.0
+
+ -- Yadd <yadd@debian.org>  Mon, 29 Mar 2021 10:16:31 +0200
+
+acorn (8.0.5+ds+~cs19.19.27-3) unstable; urgency=medium
+
+  * Team upload
+  * Source-only upload
+
+ -- Yadd <yadd@debian.org>  Tue, 15 Jun 2021 21:07:05 +0200
+
+acorn (8.0.5+ds+~cs19.19.27-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Yadd ]
+  * Fix GitHub tags regex
+
+  [ Andreas Beckmann ]
+  * Reintroduce node-acorn as transitional package for smooth upgrades from
+    buster (Closes: #986134)
+
+ -- Yadd <yadd@debian.org>  Tue, 30 Mar 2021 12:23:12 +0200
+
+acorn (8.0.5+ds+~cs19.19.27-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Pirate Praveen ]
+  * Fix Breaks version of node-acorn-dynamic-import
+
+  [ Xavier Guimard ]
+  * Declare compliance with policy 4.5.1
+  * New upstream version 8.0.5+ds+~cs19.19.27
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 26 Jan 2021 15:04:47 +0100
+
+acorn (8.0.4+ds+~cs19.19.27-1) unstable; urgency=medium
+
+  * Team upload
+  * Embed acorn-globals
+  * New upstream version 8.0.4+ds+~cs19.19.27
+    Really: 1.0.0+~4.0.0+~1.1.0+~5.3.1+~2.0.1+~0.2.7
+            +~0.3.7+~0.2.4+~0.2.0+~0.3.4+~0.3.3+~6.0.0
+  * Update copyright
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 26 Oct 2020 13:02:06 +0100
+
+acorn (8.0.4+ds+~cs13.19.27-3) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful tests
+  * Provides "acorn" virtual package
+  * Enable some component tests during build
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 13 Oct 2020 11:05:28 +0200
+
+acorn (8.0.4+ds+~cs13.19.27-2) experimental; urgency=medium
+
+  * Team upload
+  * Add missing node-acorn in "Provides" field
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 09 Oct 2020 11:48:56 +0200
+
+acorn (8.0.4+ds+~cs13.19.27-1) experimental; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Remove obsolete field Name from debian/upstream/metadata (already present in
+    machine-readable debian/copyright).
+
+  [ Xavier Guimard ]
+  * New upstream version 8.0.4+ds+~cs13.19.27
+  * Refresh patches
+  * Simplify debian/* using dh-sequence-nodejs features
+  * Enable upstream test during build and autopkgtest
+  * Bump debhelper compatibility level to 13
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 09 Oct 2020 11:26:47 +0200
+
+acorn (6.2.1+ds+~cs11.24.3-3) unstable; urgency=medium
+
+  * Team upload
+  * Remove build dependency on node-babel-preset-airbnb (Closes: #960531)
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 15 May 2020 14:40:14 +0530
+
+acorn (6.2.1+ds+~cs11.24.3-2) unstable; urgency=medium
+
+  * Team upload
+  * Build with babel 7 (Closes: #958772)
+
+ -- Pirate Praveen <praveen@debian.org>  Sat, 02 May 2020 22:03:30 +0530
+
+acorn (6.2.1+ds+~cs11.24.3-1) unstable; urgency=medium
+
+  [ Xavier Guimard ]
+  * Team upload
+  * Fix components list in debian/gbp.conf
+  * Fix for rollup 1 (Closes: #954702)
+  * Use checksum+ctype uscan features (Closes: #940708)
+  * Repack current version into 6.2.1+ds+~cs11.24.3
+  * Add "Rules-Requires-Root: no"
+  * Update lintian overrides
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 27 Mar 2020 00:30:06 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-14) unstable; urgency=medium
+
+  * Allow to remove buble or babel transpile in the next version using build
+    profile
+  * Fix debci
+  * Rebuilt with newer rollup
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 22 Feb 2020 23:35:36 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-13) unstable; urgency=medium
+
+  * Breaks against node-acorn-object-spread that is included in main acorn package as patch.
+  * Upload to unstable
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 21 Feb 2020 22:19:00 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-12) experimental; urgency=medium
+
+  * Fix debci by requiring node-acorn (>= 6.2.1)
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 21 Feb 2020 20:39:17 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-11) experimental; urgency=medium
+
+  * Install types using package.json
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 21 Feb 2020 17:14:15 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-10) experimental; urgency=medium
+
+  * Fix debci
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 21 Feb 2020 12:06:06 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-9) experimental; urgency=medium
+
+  * Breaks with node-falafel (<<2.1.0-9~)
+  * Bump policy (no changes)
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 20 Feb 2020 21:33:15 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-8) experimental; urgency=medium
+
+  * Breaks with node-espree (<< 6)
+  * Fix debci
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 20 Feb 2020 14:33:27 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-7) experimental; urgency=medium
+
+  * Bug fix: "fails to upgrade from sid: unable to install new version of
+    '/usr/share/doc/node-acorn-node/README.md': No such file or
+    directory", thanks to Andreas Beckmann (Closes: #915022).
+  * Bug fix: "fails to upgrade from sid - trying to overwrite
+    /usr/lib/nodejs/acorn-dynamic-import/lib/index.js", thanks to Andreas
+    Beckmann (Closes: #931903).
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 20 Feb 2020 11:00:16 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-6) experimental; urgency=medium
+
+  [ Julien Puydt ]
+  * Drop myself from uploaders: I don't understand how this packaging works!
+
+  [ Bastien Roucariès ]
+  * Bug fix: "FTBFS: Error: Cannot find module
+    "rollup-plugin-buble";", thanks to Andreas Beckmann (Closes:
+    #950562).
+
+ -- Bastien Roucariès <rouca@debian.org>  Wed, 19 Feb 2020 19:27:12 +0100
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-5) experimental; urgency=medium
+
+  * Really install acorn-export-ns-from
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 15 Sep 2019 19:06:54 +0200
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-4) experimental; urgency=medium
+
+  * Really install node-static-class-features
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 14 Sep 2019 23:25:53 +0200
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-3) experimental; urgency=medium
+
+  * Bug fix: "build depends on older node-unicode-*", thanks to
+    daniel.baumann@progress-linux.org; (Closes: #934079). Depends
+    on newly introduced node-unicode-lastest
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 06 Sep 2019 12:37:01 +0200
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-2) experimental; urgency=medium
+
+  [ Xavier Guimard ]
+  * Fix debian/copyright links and paths
+  * Bump debhelper compatibility level to 12
+  * Declare compliance with policy 4.4.0
+  * Add debian/gbp.conf
+  * Drop unneeded version constraints from (build) dependencies
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 05 Aug 2019 17:44:34 +0200
+
+acorn (6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0-1) UNRELEASED; urgency=medium
+
+  * New upstream version of acorn.
+  * New upstream version of acorn-bigint:
+  * Install modules to /usr/share/
+  * Bug fix: "Please add Breaks for webpack << 4.28.3 to acorn 6",
+    thanks to Pirate Praveen (Closes: #931018).
+  * Bug fix: "fails to upgrade from sid; - trying to overwrite
+    /usr/lib/nodejs/acorn-dynamic-import/lib/index.js", thanks to Andreas
+    Beckmann (Closes: #931903). Solve by using suitable breaks/replace
+    and oversionmangle to 4.0.0+really4.0.0 for our version.
+  * Bug fix: "New upstream is out", thanks to Julien Puydt (Closes:
+    #911367).
+  * Bug fix: "fails to upgrade from sid: unable to install new version of
+    /usr/share/doc/node-acorn-node/README.md: No such file or
+    directory", thanks to Andreas Beckmann (Closes: #915022).
+  * Bug fix: "acorn 6.1.1 please bundle additional plugins needed by
+    nodejs source", thanks to Jérémy Lal (Closes: #931179):
+    + Add new module node-acorn-private-class-elements
+    + Add new module node-acorn-class-fields
+    + Add new module node-acorn-static-class-features
+    + Add new module node-acorn-export-ns-from
+    + Add new module node-acorn-numeric-separator
+    + Add new module node-private-methods
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 05 Aug 2019 11:43:21 +0200
+
+acorn (6.1.1+ds+~0.3.1+~4.0.0+~1.0.0+~5.0.1+ds+~1.6.2+ds-1) experimental; urgency=medium
+
+  * New upstream version of acorn and acorn-node
+  * Remove module to node-* instead of module-node-*
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 30 Mar 2019 17:14:45 +0100
+
+acorn (6.0.2+20181021git007b08d01eff070+ds+~0.3.1+~4.0.0+~0.3.0+~5.0.0+ds+~1.6.1+ds-2) experimental; urgency=medium
+
+  * Move acorn to debbundle package
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 30 Oct 2018 10:43:32 +0100
+
+acorn (6.0.2+20181021git007b08d01eff070+ds+~0.3.1+~4.0.0+~0.3.0+~5.0.0+ds+~1.6.1+ds-1) experimental; urgency=medium
+
+  * Add acorn-jsx to bundle.
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 23 Oct 2018 22:04:38 +0200
+
+acorn (6.0.2+20181021git007b08d01eff070+ds+~0.3.1+~4.0.0+~0.3.0+~1.6.1+ds-1) experimental; urgency=medium
+
+  * New upstream release:
+    - better support of recent javascript
+    - break plugins support
+  * Include small package:
+    - node-acorn-biging
+    - node-acorn-dynamic-import (ported to acorn 6)
+    - node-acorn-import-meta
+  * Update node-acorn-node
+  * Add myself as uploader.
+
+ -- Bastien Roucariès <rouca@debian.org>  Tue, 23 Oct 2018 14:26:38 +0200
+
+acorn (5.5.3+ds3-3) unstable; urgency=medium
+
+  * Team upload
+  * Change unicode dependency to 12 (Closes: #929426)
+
+ -- Xavier Guimard <yadd@debian.org>  Thu, 23 May 2019 19:49:18 +0200
+
+acorn (5.5.3+ds3-2) unstable; urgency=medium
+
+  * Team upload
+  * Build depends on node-unicode-11.0.0 instead of node-unicode-10.0.0
+    (Closes: #914004)
+  * Refresh patches
+  * Add module-acorn-node in gbp.conf component
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 25 Feb 2019 07:20:17 +0100
+
+acorn (5.5.3+ds3-1) unstable; urgency=medium
+
+  * Team upload
+  * Avoid to upload twice acorn node
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 06 May 2018 16:47:10 +0200
+
+acorn (5.5.3+ds2-1) unstable; urgency=medium
+
+  * Team upload.
+  * Import small package acorn-node.
+  * Regenerate unicode regex from unicode files.
+  * Bump policy (no changes)
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 05 May 2018 20:15:37 +0200
+
+acorn (5.5.3+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Fri, 09 Mar 2018 07:02:20 +0100
+
+acorn (5.5.0+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Sun, 04 Mar 2018 23:21:11 +0100
+
+acorn (5.4.1+ds1-2) unstable; urgency=medium
+
+  * Use rollup -- like upstream.
+  * Bump dh compat to 11.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Sun, 25 Feb 2018 20:03:13 +0100
+
+acorn (5.4.1+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Mon, 19 Feb 2018 23:29:18 +0100
+
+acorn (5.3.0+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Wed, 03 Jan 2018 10:50:55 +0100
+
+acorn (5.2.1+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Mon, 06 Nov 2017 03:15:10 +0100
+
+acorn (5.1.2+ds1-2) unstable; urgency=high
+
+  * Team upload
+  * Reimport change of 5.1.1+ds1-3
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 02 Nov 2017 15:30:47 +0100
+
+acorn (5.1.2+ds1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump d/watch to version 4.
+  * Bump std-ver to 4.1.1.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Sun, 22 Oct 2017 16:47:09 +0200
+
+acorn (5.1.1+ds1-3) unstable; urgency=medium
+
+  * Team upload
+  * Create compatibility dist link
+  * Fix loose and walk
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 28 Aug 2017 00:06:45 +0200
+
+acorn (5.1.1+ds1-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Julien Puydt ]
+  * Bump std-ver to 4.0.1.
+  * Use node instead of nodejs now.
+  * Improve the loose plugin.
+
+  [ Bastien Roucariès ]
+  * Bug fix: "Acorn does not build walk", thanks to Ross Gammon (Closes:
+    #848507).
+  * Enable test suite.
+
+ -- Bastien Roucariès <rouca@debian.org>  Sat, 19 Aug 2017 15:48:17 +0200
+
+acorn (5.1.1+ds1-1) unstable; urgency=high
+
+  * Team upload
+  * Fix > instead of >= in control.
+  * Repack and remove dist and test/bench
+  * Run testsuite (smoke test)
+  * Improve autopkgtest
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 18 Aug 2017 12:05:57 +0200
+
+acorn (5.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop all patches and depend on nodejs (> 6) (Closes: #872480).
+  * Add a patch to unbreak the compilation with node-es6-module-transpiler.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Fri, 18 Aug 2017 09:02:29 +0200
+
+acorn (5.0.3-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #857398).
+  * Bump standards-version to 4.0.0.
+  * Remove build-dep on docbook-xml since it's not used anymore.
+  * Don't parse the changelog : use dpkg's variables.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Wed, 16 Aug 2017 08:58:07 +0200
+
+acorn (4.0.4-2) unstable; urgency=medium
+
+  * Add explicit rule to force compilation ordering (Closes: #850506)
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Thu, 09 Mar 2017 07:17:56 +0100
+
+acorn (4.0.4-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Wed, 11 Jan 2017 10:42:32 +0100
+
+acorn (4.0.3-3) unstable; urgency=medium
+
+  * Ship the src directory. (Closes: #848857)
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Tue, 20 Dec 2016 11:37:59 +0100
+
+acorn (4.0.3-2) unstable; urgency=medium
+
+  * Add patch to remove use of default arguments. (Closes: #847789)
+  * Add patch to remove use of destructuring assignmants.
+  * Modify the way manpages are built (courtesy of Mattia Rizzolo).
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Tue, 13 Dec 2016 17:00:41 +0100
+
+acorn (4.0.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Put myself as uploader.
+  * Update the upstream url.
+  * Bump dh compat to 10.
+  * Use https for Vcs-* fields.
+  * Bump standards-version to 3.9.8.
+  * Rework d/copyright.
+  * Remove libjs-acorn package (it's unclear what it means now).
+  * Make the new sources compile with node-es6-module-transpiler.
+  * Disable autotests : they don't work anymore.
+  * Add lintian overrides for autogenerated code we have the generator for.
+  * Fix /usr/bin/acorn so it works
+  * Update the manpage.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Fri, 25 Nov 2016 09:07:02 +0100
+
+acorn (0.12.0-1) unstable; urgency=medium
+
+  * Set the date embedded in man pages to the changelog date for
+    reproducible builds. (closes: #788717)
+  * Limit uscan to 0.x versions.
+  * New upstream release.
+  * Refresh patches.
+  * Drop XS-Testsuite field, dpkg supports it by default now.
+
+ -- Bas Couwenberg <sebastic@debian.org>  Sun, 14 Jun 2015 16:16:10 +0200
+
+acorn (0.11.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #779300)
+
+ -- Bas Couwenberg <sebastic@debian.org>  Fri, 27 Feb 2015 13:24:59 +0100

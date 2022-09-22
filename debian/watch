@@ -1,0 +1,67 @@
+version=4
+
+opts="pgpmode=none,dversionmangle=s/@DEB_EXT@//,repacksuffix=+ds,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-$1%" \
+	     https://github.com/acornjs/acorn/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ group
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-bigint,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-bigint-$1%" \
+	     https://github.com/acornjs/acorn-bigint/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+# workarround problem with break/replace with uversionmangle should be removed with version > 4.0.0
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-dynamic-import,dversionmangle=s/@DEB_EXT@//,oversionmangle=s/^4.0.0$/4.0.0+really4.0.0/,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-dynamic-import-$1%" \
+	     https://github.com/kesne/acorn-dynamic-import/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-import-meta,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-import-meta-$1%" \
+	     https://github.com/acornjs/acorn-import-meta/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+# lack of tag
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-jsx,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-jsx-$1%" \
+             https://github.com/RReverser/acorn-jsx/tags \
+             (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+# temp workarround
+#opts="pgpmode=none,ctype=nodejs,component=node-acorn-jsx,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-jsx-$1%" \
+#	     https://github.com/bastien-roucaries/acorn-jsx/tags \
+#	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-node,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-node-$1%" \
+	     https://github.com/browserify/acorn-node/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-private-class-elements,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-private-class-elements-$1%" \
+	     https://github.com/acornjs/acorn-private-class-elements/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-class-fields,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-class-fields-$1%" \
+	     https://github.com/acornjs/acorn-class-fields/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-static-class-features,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-static-class-features-$1%" \
+	     https://github.com/acornjs/acorn-static-class-features/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-export-ns-from,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-export-ns-from-$1%" \
+	     https://github.com/acornjs/acorn-export-ns-from/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-numeric-separator,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-numeric-separator-$1%" \
+	     https://github.com/acornjs/acorn-numeric-separator/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts="pgpmode=none,ctype=nodejs,component=node-acorn-private-methods,dversionmangle=s/@DEB_EXT@//,filenamemangle=s%(?:.*?)?v?(@ANY_VERSION@@ARCHIVE_EXT@)$%node-acorn-private-methods-$1%" \
+	     https://github.com/acornjs/acorn-private-methods/tags \
+	     (?:.*?/)?v?(\d[\d.]*)@ARCHIVE_EXT@ checksum
+
+opts=\
+component=node-acorn-globals,\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-acorn-globals-$1/ \
+ https://github.com/ForbesLindesay/acorn-globals/tags .*/archive/.*/v?([\d\.]+).tar.gz checksum
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=acorn-import-assertions,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?-(\d[\d\.-]*@ARCHIVE_EXT@)/node-acorn-import-assertions-$1/" \
+ https://registry.npmjs.org/acorn-import-assertions https://registry.npmjs.org/acorn-import-assertions/-/acorn-import-assertions-([\d\.]+)@ARCHIVE_EXT@ checksum

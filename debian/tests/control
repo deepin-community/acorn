@@ -1,0 +1,6 @@
+Tests: require
+Depends: @, libjson-perl
+Restrictions: superficial
+
+Tests: smoketest
+Depends: node-acorn (>= 6.2.1), nodejs (>= 6)

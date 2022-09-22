@@ -1,0 +1,74 @@
+Source: acorn
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Bastien Roucariès <rouca@debian.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs (>= 0.9.78~)
+ , docbook2x <!nodoc>
+ , jdupes
+ , mocha <!nocheck>
+ , node-ast-types
+ , node-babel7
+ , node-graceful-fs
+ , node-rollup-plugin-babel (>= 4.4~)
+ , node-rollup-plugin-buble
+ , node-tap <!nocheck>
+ , node-tape <!nocheck>
+ , node-unicode-lastest
+ , node-xtend <!nocheck>
+ , nodejs:native | nodejs (<<12.22.5~dfsg-4~)
+ , rollup
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/acorn
+Vcs-Git: https://salsa.debian.org/js-team/acorn.git
+Homepage: https://github.com/ternjs/acorn/
+Rules-Requires-Root: no
+
+Package: node-acorn
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+ , node-xtend
+ , nodejs:any | nodejs (<<12.22.5~dfsg-4~)
+Breaks: node-debbundle-acorn (<< 8.5.0+ds+~cs24.17.6~)
+ , node-acorn-dynamic-import (<< 4.0.0~)
+ , node-acorn-jsx (<< 5.0.0~)
+ , node-acorn-object-spread (<<6~)
+ , node-babel (<< 7)
+ , node-espree (<< 6~)
+ , node-falafel (<<2.1.0-9~)
+ , webpack (<< 4.28.3~)
+Provides: ${nodejs:Provides}
+ , node-debbundle-acorn (= ${binary:Version})
+Replaces: node-debbundle-acorn (<< 8.5.0+ds+~cs24.17.6~)
+ , node-acorn-dynamic-import (<< 4.0.0+really4.0.0~)
+ , node-acorn-jsx (<< 5.0.0~)
+Description: ECMAScript parser for Node.js
+ Acorn is a tiny, fast JavaScript parser written in JavaScript.
+ .
+ acorn.js defines the main parser interface. The library also comes with a
+ error-tolerant parser and an abstract syntax tree walker, defined in other
+ files.
+ .
+ This package contains the acorn module for Node.js.
+ .
+ This package contains also small pluggins packages acorn-bigint,
+ acorn-dynamic-import, acorn-jsx, acorn-node, acorn-private-class-elements,
+ acorn-class-fields, acorn-static-class-features, acorn-export-ns-from,
+ acorn-numeric-separator, acorn-private-methods.
+ .
+ Node.js is an event-based server-side JavaScript engine.
+
+Package: node-debbundle-acorn
+Architecture: all
+Multi-Arch: foreign
+Section: oldlibs
+Depends: ${misc:Depends}
+ , node-acorn (= ${binary:Version})
+Breaks: node-acorn (<<8.5.0+ds+~cs23.9.6-2~)
+Replaces: node-acorn (<<8.5.0+ds+~cs23.9.6-2~)
+Description: Transitional dummy package for upgrading to node-debbundle-acorn
+ This is a transitional dummy package to ease upgrading to
+ node-acorn. It can be safely removed.

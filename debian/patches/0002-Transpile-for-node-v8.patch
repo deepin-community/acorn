@@ -1,0 +1,24 @@
+From: =?UTF-8?q?Bastien=20Roucari=C3=A8s?= <rouca@debian.org>
+Date: Sat, 29 Dec 2018 21:51:45 +0100
+Subject: Transpile for node v8
+
+Transpile acorn-dynamic to v8 only
+
+Forwarded: no
+---
+ node-acorn-dynamic-import/.babelrc | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/node-acorn-dynamic-import/.babelrc b/node-acorn-dynamic-import/.babelrc
+index e0aceaa..25bbe9d 100644
+--- a/node-acorn-dynamic-import/.babelrc
++++ b/node-acorn-dynamic-import/.babelrc
+@@ -1,3 +1,7 @@
+ {
+-  "presets": ["airbnb"]
++  "presets": [["airbnb", {
++    "targets": {
++      "node": 8
++    }
++  }]]
+ }

@@ -1,0 +1,8 @@
+---
+include:
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/salsa-ci.yml
+  - https://salsa.debian.org/salsa-ci-team/pipeline/raw/master/pipeline-jobs.yml
+  - https://salsa.debian.org/js-team/acorn/-/raw/master/debian/acorn.yml
+
+variables:
+ SALSA_CI_ENABLE_REVERSE_DEPENDENCY_BUILD: 0

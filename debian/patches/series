@@ -1,0 +1,6 @@
+0002-Transpile-for-node-v8.patch
+0004-Depends-on-lastest-unicode.patch
+0007-remove-babel-preset-airbnb.patch
+0008-fix-test-for-autopkgtest.patch
+drop-one-subtest.patch
+0006-Fix-a-test-that-fail-on-recent-nodejs.patch

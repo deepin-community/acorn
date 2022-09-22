@@ -1,0 +1,19 @@
+# see git-dpm(1) from git-dpm package
+a9eb3111e4c0038741d3901bb8a99f02d82e5611
+a9eb3111e4c0038741d3901bb8a99f02d82e5611
+5c86bbcb577f340371b0ddd062bf02b8e35d73c6
+5c86bbcb577f340371b0ddd062bf02b8e35d73c6
+acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig.tar.xz
+6584428f16403cb8ae1abeb9320d53878a4cd9ee
+109264
+component:676fc5f124ea751473f2530a33e904088a35e169:6243:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-bigint.tar.gz
+component:547d34d9a1e28196270db1fc1bfbb6419e27c662:6681:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-class-fields.tar.gz
+component:e92eb38ea3d8e595f386e11953fef09b32183331:43887:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-dynamic-import.tar.gz
+component:cfe23846c9b148a7aa6353ed5c7ef1a86057932f:5295:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-export-ns-from.tar.gz
+component:4f0e428674f73e8860341922b6923ffedae9647b:6184:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-import-meta.tar.gz
+component:7e8a36dea40f2e7d696c7da16b7793afa9f97be1:8440:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-jsx.tar.xz
+component:a41bd0e2720d1743449a9de335029fe86ed415b5:5336:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-node.tar.xz
+component:a3b490f91e22a8188fcfc7245c6f3adf540e658c:6398:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-numeric-separator.tar.gz
+component:7a1f5b00d6059987d96cf5af57275839b9719858:5320:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-private-class-elements.tar.gz
+component:aed7a6567c132a9d9ef3d68b03fa2876fa7fc771:7453:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-static-class-features.tar.gz
+component:3bb1570c68534d8e0289eaef138d7f63d4fdeaa0:6251:acorn_6.2.1+ds+~0.4.0+~4.0.0+really4.0.0+~1.0.0+~5.0.1+ds+~1.7.0+ds+~0.1.1+~0.3.1+~0.2.0+~0.1.0+~0.3.0+~0.3.0.orig-node-acorn-private-methods.tar.gz

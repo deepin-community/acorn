@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "10"
+  - "8"
+  - "6"
+before_install:
+  - 'npm install -g npm'
+script:
+  - 'if [ -n "${LINT-}" ]; then npm run lint ; fi'
+  - 'if [ -n "${TEST-}" ]; then npm run tests-only ; fi'
+sudo: false
+env:
+  - TEST=true
+matrix:
+  fast_finish: true
+  include:
+    - node_js: "node"
+      env: LINT=true
