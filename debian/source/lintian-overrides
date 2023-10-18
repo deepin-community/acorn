@@ -1,14 +1,22 @@
 # regenerated from source see rules
-very-long-line-length-in-source-file acorn/src/identifier.js line *
-source-contains-prebuilt-javascript-object acorn/src/identifier.js
-source-is-missing acorn/src/identifier.js
+source-is-missing *acorn/src/generated/astralIdentifierCodes.js*
+source-is-missing *acorn/src/generated/astralIdentifierStartCodes.js*
+source-is-missing *acorn/src/generated/nonASCIIidentifierChars.js*
+source-is-missing *acorn/src/generated/nonASCIIidentifierStartChars.js*
+source-contains-prebuilt-javascript-object *acorn/src/generated/astralIdentifierCodes.js*
+source-contains-prebuilt-javascript-object *acorn/src/generated/astralIdentifierStartCodes.js*
+source-contains-prebuilt-javascript-object *acorn/src/generated/nonASCIIidentifierChars.js*
+source-contains-prebuilt-javascript-object *acorn/src/generated/nonASCIIidentifierStartChars.js*
+very-long-line-length-in-source-file *acorn/src/generated/astralIdentifierCodes.js*
+very-long-line-length-in-source-file *acorn/src/generated/astralIdentifierStartCodes.js*
+very-long-line-length-in-source-file *acorn/src/generated/nonASCIIidentifierChars.js*
+very-long-line-length-in-source-file *acorn/src/generated/nonASCIIidentifierStartChars.js*
 
 # copy pasted from unicode spec (not generated)
-very-long-line-length-in-source-file acorn/src/unicode-property-data.js *
-source-contains-prebuilt-javascript-object acorn/src/unicode-property-data.js
-source-is-missing acorn/src/unicode-property-data.js
+very-long-line-length-in-source-file *acorn/src/unicode-property-data.js *
+source-contains-prebuilt-javascript-object *acorn/src/unicode-property-data.js*
+source-is-missing *acorn/src/unicode-property-data.js*
 
 # False positive
-source-contains-prebuilt-javascript-object acorn-import-assertions/lib/index.js
-very-long-line-length-in-source-file acorn-import-assertions/lib/index.js line *
-very-long-line-length-in-source-file logo.svg line *
+source-contains-prebuilt-javascript-object *acorn-import-assertions/lib/index.js
+very-long-line-length-in-source-file *acorn-import-assertions/lib/index.js*

@@ -1,3 +1,27 @@
+## 8.3.0 (2021-12-27)
+
+### New features
+
+Support quoted export names.
+
+Support class private fields with the `in` operator.
+
+### Bug fixes
+
+Fix a bug that caused semicolons after `export *` statements to be parsed as empty statements.
+
+## 8.2.1 (2021-09-06)
+
+### Bug fixes
+
+Depend on the proper version of acorn.
+
+## 8.2.0 (2021-09-06)
+
+### New features
+
+Add support for ES2022 class static blocks.
+
 ## 8.1.0 (2021-04-24)
 
 ### New features

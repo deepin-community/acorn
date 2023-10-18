@@ -5,13 +5,14 @@ Section: javascript
 Testsuite: autopkgtest-pkg-nodejs
 Priority: optional
 Build-Depends: debhelper-compat (= 13)
- , dh-sequence-nodejs (>= 0.9.78~)
+ , dh-sequence-nodejs (>= 0.14.5~)
  , docbook2x <!nodoc>
  , jdupes
  , mocha <!nocheck>
  , node-ast-types
  , node-babel7
  , node-graceful-fs
+ , node-mkdirp
  , node-rollup-plugin-babel (>= 4.4~)
  , node-rollup-plugin-buble
  , node-tap <!nocheck>
@@ -20,7 +21,7 @@ Build-Depends: debhelper-compat (= 13)
  , node-xtend <!nocheck>
  , nodejs:native | nodejs (<<12.22.5~dfsg-4~)
  , rollup
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/acorn
 Vcs-Git: https://salsa.debian.org/js-team/acorn.git
 Homepage: https://github.com/ternjs/acorn/

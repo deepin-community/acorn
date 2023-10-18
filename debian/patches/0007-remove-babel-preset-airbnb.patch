@@ -8,8 +8,6 @@ Replace preset airbnb with @babel/env for babel 7
  node-acorn-dynamic-import/.babelrc | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/node-acorn-dynamic-import/.babelrc b/node-acorn-dynamic-import/.babelrc
-index 25bbe9d..9b1b7bd 100644
 --- a/node-acorn-dynamic-import/.babelrc
 +++ b/node-acorn-dynamic-import/.babelrc
 @@ -1,5 +1,5 @@

@@ -46,10 +46,12 @@ pp.checkPropClash = function(prop, propHash, refDestructuringErrors) {
     if (name === "__proto__" && kind === "init") {
       if (propHash.proto) {
         if (refDestructuringErrors) {
-          if (refDestructuringErrors.doubleProto < 0)
+          if (refDestructuringErrors.doubleProto < 0) {
             refDestructuringErrors.doubleProto = key.start
-          // Backwards-compat kludge. Can be removed in version 6.0
-        } else this.raiseRecoverable(key.start, "Redefinition of __proto__ property")
+          }
+        } else {
+          this.raiseRecoverable(key.start, "Redefinition of __proto__ property")
+        }
       }
       propHash.proto = true
     }
@@ -114,10 +116,11 @@ pp.parseMaybeAssign = function(forInit, refDestructuringErrors, afterLeftParse) 
     else this.exprAllowed = false
   }
 
-  let ownDestructuringErrors = false, oldParenAssign = -1, oldTrailingComma = -1
+  let ownDestructuringErrors = false, oldParenAssign = -1, oldTrailingComma = -1, oldDoubleProto = -1
   if (refDestructuringErrors) {
     oldParenAssign = refDestructuringErrors.parenthesizedAssign
     oldTrailingComma = refDestructuringErrors.trailingComma
+    oldDoubleProto = refDestructuringErrors.doubleProto
     refDestructuringErrors.parenthesizedAssign = refDestructuringErrors.trailingComma = -1
   } else {
     refDestructuringErrors = new DestructuringErrors
@@ -148,6 +151,7 @@ pp.parseMaybeAssign = function(forInit, refDestructuringErrors, afterLeftParse) 
     node.left = left
     this.next()
     node.right = this.parseMaybeAssign(forInit)
+    if (oldDoubleProto > -1) refDestructuringErrors.doubleProto = oldDoubleProto
     return this.finishNode(node, "AssignmentExpression")
   } else {
     if (ownDestructuringErrors) this.checkExpressionErrors(refDestructuringErrors, true)
@@ -215,6 +219,7 @@ pp.parseExprOp = function(left, leftStartPos, leftStartLoc, minPrec, forInit) {
 }
 
 pp.buildBinary = function(startPos, startLoc, left, right, op, logical) {
+  if (right.type === "PrivateIdentifier") this.raise(right.start, "Private identifier can only be left side of binary expression")
   let node = this.startNodeAt(startPos, startLoc)
   node.left = left
   node.operator = op
@@ -244,6 +249,11 @@ pp.parseMaybeUnary = function(refDestructuringErrors, sawUnary, incDec, forInit)
       this.raiseRecoverable(node.start, "Private fields can not be deleted")
     else sawUnary = true
     expr = this.finishNode(node, update ? "UpdateExpression" : "UnaryExpression")
+  } else if (!sawUnary && this.type === tt.privateId) {
+    if (forInit || this.privateNameStack.length === 0) this.unexpected()
+    expr = this.parsePrivateIdent()
+    // only could be private fields in 'in', such as #x in obj
+    if (this.type !== tt._in) this.unexpected()
   } else {
     expr = this.parseExprSubscripts(refDestructuringErrors, forInit)
     if (this.checkExpressionErrors(refDestructuringErrors)) return expr
@@ -628,7 +638,7 @@ pp.parseParenItem = function(item) {
 }
 
 pp.parseParenArrowList = function(startPos, startLoc, exprList, forInit) {
-  return this.parseArrowExpression(this.startNodeAt(startPos, startLoc), exprList, forInit)
+  return this.parseArrowExpression(this.startNodeAt(startPos, startLoc), exprList, false, forInit)
 }
 
 // New's precedence is slightly tricky. It must allow its argument to
@@ -739,15 +749,6 @@ pp.parseProperty = function(isPattern, refDestructuringErrors) {
         this.raise(this.start, "Comma is not permitted after the rest element")
       }
       return this.finishNode(prop, "RestElement")
-    }
-    // To disallow parenthesized identifier via `this.toAssignable()`.
-    if (this.type === tt.parenL && refDestructuringErrors) {
-      if (refDestructuringErrors.parenthesizedAssign < 0) {
-        refDestructuringErrors.parenthesizedAssign = this.start
-      }
-      if (refDestructuringErrors.parenthesizedBind < 0) {
-        refDestructuringErrors.parenthesizedBind = this.start
-      }
     }
     // Parse argument.
     prop.argument = this.parseMaybeAssign(false, refDestructuringErrors)
