@@ -1,0 +1,14 @@
+Description: fix loneSurrogate value
+Author: Yadd <yadd@debian.org>
+Bug-Debian: https://bugs.debian.org/1010344
+Forwarded: no
+Last-Update: 2022-06-24
+
+--- a/acorn/src/util.js
++++ b/acorn/src/util.js
+@@ -19,4 +19,4 @@
+   return String.fromCharCode((code >> 10) + 0xD800, (code & 1023) + 0xDC00)
+ }
+ 
+-export const loneSurrogate = /[\uD800-\uDFFF]/u
++export const loneSurrogate = /(?:[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])/

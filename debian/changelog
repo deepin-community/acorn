@@ -1,3 +1,81 @@
+acorn (8.8.1+ds+~cs25.17.7-2) unstable; urgency=medium
+
+  * Team upload
+  * Use dh_nodejs_autodocs
+  * Update copyright
+
+ -- Yadd <yadd@debian.org>  Thu, 10 Nov 2022 06:48:10 +0100
+
+acorn (8.8.1+ds+~cs25.17.7-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.8.1+ds+~cs25.17.7
+
+ -- Yadd <yadd@debian.org>  Mon, 24 Oct 2022 16:50:44 +0200
+
+acorn (8.8.0+ds+~cs25.17.7-2) unstable; urgency=medium
+
+  * Team upload
+  * Fix rollup configurations for rollup 3 (Closes: #1022592)
+
+ -- Yadd <yadd@debian.org>  Mon, 24 Oct 2022 16:36:05 +0200
+
+acorn (8.8.0+ds+~cs25.17.7-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.8.0+ds+~cs25.17.7
+  * Rebuild to drop __proto__ from bundle
+
+ -- Yadd <yadd@debian.org>  Tue, 20 Sep 2022 20:55:07 +0200
+
+acorn (8.8.0+ds+~cs24.17.6-2) unstable; urgency=medium
+
+  * Team upload
+  * Fix acorn.Parser default options (Closes: #1016300)
+
+ -- Yadd <yadd@debian.org>  Sat, 30 Jul 2022 15:09:36 +0200
+
+acorn (8.8.0+ds+~cs24.17.6-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.8.0+ds+~cs24.17.6
+
+ -- Yadd <yadd@debian.org>  Mon, 25 Jul 2022 11:09:28 +0200
+
+acorn (8.7.1+ds+~cs24.17.6-2) unstable; urgency=medium
+
+  * Team upload
+  * Declare compliance with policy 4.6.1
+  * Fix loneSurrogate regexp (Closes: #1010344)
+
+ -- Yadd <yadd@debian.org>  Fri, 24 Jun 2022 15:10:08 +0200
+
+acorn (8.7.1+ds+~cs24.17.6-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.7.1+ds+~cs24.17.6
+  * Refresh patches
+
+ -- Yadd <yadd@debian.org>  Thu, 28 Apr 2022 08:15:15 +0200
+
+acorn (8.7.0+ds+~cs24.17.6-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.7.0+ds+~cs24.17.6
+  * Refresh patches
+  * Refresh build
+
+ -- Yadd <yadd@debian.org>  Tue, 28 Dec 2021 17:51:03 +0100
+
+acorn (8.6.0+ds+~cs24.17.6-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 8.6.0+ds+~cs24.17.6
+  * Update lintian overrides
+  * Refresh patches
+
+ -- Yadd <yadd@debian.org>  Thu, 25 Nov 2021 18:57:22 +0100
+
 acorn (8.5.0+ds+~cs24.17.6-5) unstable; urgency=medium
 
   * Team upload

@@ -28,8 +28,6 @@ override_dh_auto_build:
 		echo "rollup -c $$dir/rollup.config.js"; \
 		rollup -c $$dir/rollup.config.js; \
 	done
-	@echo "# Build binary"
-	rollup -c acorn/rollup.config.bin.js
 
 # MANPAGES & DOC
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
@@ -48,36 +46,9 @@ endif
 
 
 override_dh_installdocs:
-	#module-acorn-node/README.acorn-node.md
-	# manual building of copyright
-	mkdir -p debian/${MAIN_PACKAGE}/usr/share/doc/${MAIN_PACKAGE}
-	set -e; if test "X$(ACORN_ALL_COMPONENTS)" != X ; then \
-		for module in $(ACORN_ALL_COMPONENTS); do \
-			mkdir -p "debian/${MAIN_PACKAGE}/usr/share/doc/$$module"; \
-			ln -s "../${MAIN_PACKAGE}/copyright" "debian/${MAIN_PACKAGE}/usr/share/doc/$$module/copyright" ; \
-			ln -s "../$(MAIN_PACKAGE)" "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module/$(MAIN_PACKAGE)"; \
-			ln -s "../$$module" "debian/$(MAIN_PACKAGE)/usr/share/doc/$(MAIN_PACKAGE)/$$module"; \
-		done; \
-	else \
-		true; \
-	fi
 ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
 	dh_installdocs --link-doc=node-acorn
-	# install
-	mkdir -p "debian/${MAIN_PACKAGE}/usr/share/doc/node-acorn";
-	install README.md debian/${MAIN_PACKAGE}/usr/share/doc/node-acorn
-	set -e; if test "X$(ACORN_ALL_COMPONENTS)" != X ; then \
-		for module in $(ACORN_ALL_COMPONENTS); do \
-			mkdir -p "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module"; \
-			find -H "$$module" -maxdepth 1 -iname '*.md' -and -not -iname 'license.md' -exec install {} "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module" \; ; \
-			(set -e ; cd "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module" && find -iname 'changelog.md' -exec mv {} changelog \;) ;  \
-		done; \
-	else \
-		true; \
-	fi
-	install acorn/*.md debian/$(MAIN_PACKAGE)/usr/share/doc/node-acorn/
-	# jdupes for doc
-	(set -e; cd debian/$(MAIN_PACKAGE)/usr/share/doc/; jdupes node-acorn $$(find . -maxdepth 1 -type d -not -name node-acorn) -l -z)
+	dh_nodejs_autodocs auto_dispatch
 else
 override_dh_installdocs:
 	@echo '**********************************************************'
@@ -86,23 +57,7 @@ override_dh_installdocs:
 endif
 
 override_dh_installchangelogs:
-	# create changelog
-	if test "X$(PACKAGES_DOCS_DIR)" != X ; then \
-		for module in $(PACKAGES_DOCS_DIR); do \
-			mkdir -p "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module"; \
-			ln -s "../$(MAIN_PACKAGE)/changelog.Debian.gz" "debian/$(MAIN_PACKAGE)/usr/share/doc/$$module/changelog.Debian.gz" ; \
-		done; \
-	else \
-		true; \
-	fi
-ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
-	dh_installchangelogs
-	# jdupes for doc
-	(set -e; cd debian/$(MAIN_PACKAGE)/usr/share/doc/; jdupes node-acorn $$(find . -maxdepth 1 -type d -not -name node-acorn) -l -z)
-else
-	dh_installchangelogs
-endif
-
+	dh_installchangelogs acorn/CHANGELOG.md
 
 override_dh_auto_clean:
 	set -e; for module in $(ACORN_COMPONENTS); do \

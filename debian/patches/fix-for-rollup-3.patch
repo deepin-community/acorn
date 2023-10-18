@@ -1,0 +1,57 @@
+Description: fix for rollup 3
+Author: Yadd <yadd@debian.org>
+Bug-Debian: https://bugs.debian.org/1022592
+Forwarded: not-needed
+Last-Update: 2022-10-24
+
+--- a/acorn-loose/rollup.config.js
++++ b/acorn-loose/rollup.config.js
+@@ -1,6 +1,6 @@
+-import buble from "@rollup/plugin-buble"
++const buble =require("@rollup/plugin-buble")
+ 
+-export default {
++module.exports = {
+   external: ["acorn"],
+   input: "acorn-loose/src/index.js",
+   output: [
+--- a/acorn-walk/rollup.config.js
++++ b/acorn-walk/rollup.config.js
+@@ -1,6 +1,6 @@
+-import buble from "@rollup/plugin-buble"
++const buble = require("@rollup/plugin-buble")
+ 
+-export default {
++module.exports = {
+   input: "acorn-walk/src/index.js",
+   output: [
+     {
+--- a/acorn/rollup.config.js
++++ b/acorn/rollup.config.js
+@@ -1,6 +1,6 @@
+-import buble from "@rollup/plugin-buble"
++const buble = require("@rollup/plugin-buble")
+ 
+-export default [
++module.exports = [
+   {
+     input: "acorn/src/index.js",
+     output: [
+--- a/node-acorn-numeric-separator/rollup.config.js
++++ b/node-acorn-numeric-separator/rollup.config.js
+@@ -1,5 +1,5 @@
+ // eslint-disable-next-line node/no-unsupported-features/es-syntax
+-export default {
++module.exports = {
+   input: "src/index.js",
+   output: [
+     {
+--- a/node-acorn-private-methods/rollup.config.js
++++ b/node-acorn-private-methods/rollup.config.js
+@@ -1,5 +1,5 @@
+ // eslint-disable-next-line node/no-unsupported-features/es-syntax
+-export default {
++module.exports = {
+   input: "index.js",
+   output: [
+     {

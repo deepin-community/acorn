@@ -8,11 +8,9 @@ Last-Update: 2020-10-13
  node-acorn-node/test/index.js | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/node-acorn-node/test/index.js b/node-acorn-node/test/index.js
-index 88bcee8..070db5d 100644
 --- a/node-acorn-node/test/index.js
 +++ b/node-acorn-node/test/index.js
-@@ -15,12 +15,14 @@ test('parses object spread syntax', function (t) {
+@@ -15,12 +15,14 @@
    t.end()
  })
  

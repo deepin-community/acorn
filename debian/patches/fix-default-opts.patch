@@ -1,0 +1,19 @@
+Description: fix default option
+Author: Yadd <yadd@debian.org>
+Bug-Debian: https://bugs.debian.org/1016300
+ https://bugs.debian.org/1016326
+ https://bugs.debian.org/1016339
+Forwarded: no
+Last-Update: 2022-07-30
+
+--- a/acorn/src/options.js
++++ b/acorn/src/options.js
+@@ -100,7 +100,7 @@
+ 
+ let warnedAboutEcmaVersion = false
+ 
+-export function getOptions(opts) {
++export function getOptions(opts = {}) {
+   let options = {}
+ 
+   for (let opt in defaultOptions)

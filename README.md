@@ -8,6 +8,8 @@ A tiny, fast JavaScript parser, written completely in JavaScript.
 
 ## Community
 
+<a href="https://stand-with-ukraine.pp.ua/"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct.svg" width="800"></a>
+
 Acorn is open source software released under an
 [MIT license](https://github.com/acornjs/acorn/blob/master/acorn/LICENSE).
 
@@ -21,11 +23,11 @@ and discussion, please use the
 
 This repository holds three packages:
 
- - [acorn](https://github.com/acornjs/acorn/blob/master/acorn/): The
+ - [acorn](https://github.com/acornjs/acorn/tree/master/acorn/): The
    main parser
- - [acorn-loose](https://github.com/acornjs/acorn/blob/master/acorn-loose/): The
+ - [acorn-loose](https://github.com/acornjs/acorn/tree/master/acorn-loose/): The
    error-tolerant parser
- - [acorn-walk](https://github.com/acornjs/acorn/blob/master/acorn-walk/): The
+ - [acorn-walk](https://github.com/acornjs/acorn/tree/master/acorn-walk/): The
    syntax tree walker
 
 To build the content of the repository, run `npm install`.

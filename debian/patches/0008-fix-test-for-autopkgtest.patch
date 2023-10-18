@@ -1,29 +1,14 @@
-From: Xavier Guimard <yadd@debian.org>
-Date: Sat, 18 Sep 2021 20:25:07 +0000
-Subject: fix test for autopkgtest
-
+Description: fix test for autopkgtest
+Author: Yadd <yadd@debian.org>
 Forwarded: not-needed
-Last-Update: 2021-05-02
----
- test/run.js                                | 4 ++--
- test/tests-asyncawait.js                   | 2 +-
- test/tests-directive.js                    | 2 +-
- test/tests-export-all-as-ns-from-source.js | 2 +-
- test/tests-nullish-coalescing.js           | 2 +-
- test/tests-optional-chaining.js            | 2 +-
- test/tests-rest-spread-properties.js       | 2 +-
- test/tests-trailing-commas-in-func.js      | 2 +-
- test/tests.js                              | 2 +-
- 9 files changed, 10 insertions(+), 10 deletions(-)
+Last-Update: 2022-04-28
 
-diff --git a/test/run.js b/test/run.js
-index 789dd66..99861f7 100644
 --- a/test/run.js
 +++ b/test/run.js
-@@ -25,8 +25,8 @@
-   require("./tests-logical-assignment-operators.js");
+@@ -26,8 +26,8 @@
    require("./tests-numeric-separators.js");
    require("./tests-class-features-2022.js");
+   require("./tests-module-string-names.js");
 -  var acorn = require("../acorn")
 -  var acorn_loose = require("../acorn-loose")
 +  var acorn = require("acorn")
@@ -31,105 +16,12 @@ index 789dd66..99861f7 100644
  
    var htmlLog = typeof document === "object" && document.getElementById('log');
    var htmlGroup = htmlLog;
-diff --git a/test/tests-asyncawait.js b/test/tests-asyncawait.js
-index 11eae83..af0e6b8 100644
---- a/test/tests-asyncawait.js
-+++ b/test/tests-asyncawait.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- //-----------------------------------------------------------------------------
-diff --git a/test/tests-directive.js b/test/tests-directive.js
-index f83a7cf..0b49ff9 100644
---- a/test/tests-directive.js
-+++ b/test/tests-directive.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- //------------------------------------------------------------------------
-diff --git a/test/tests-export-all-as-ns-from-source.js b/test/tests-export-all-as-ns-from-source.js
-index 8a7145e..3128e11 100644
---- a/test/tests-export-all-as-ns-from-source.js
-+++ b/test/tests-export-all-as-ns-from-source.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- //------------------------------------------------------------------------------
-diff --git a/test/tests-nullish-coalescing.js b/test/tests-nullish-coalescing.js
-index 6cd14a5..6b6a83d 100644
---- a/test/tests-nullish-coalescing.js
-+++ b/test/tests-nullish-coalescing.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- test("a ?? b", {
-diff --git a/test/tests-optional-chaining.js b/test/tests-optional-chaining.js
-index 18cb1f2..f66e7f5 100644
---- a/test/tests-optional-chaining.js
-+++ b/test/tests-optional-chaining.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- // Simple
-diff --git a/test/tests-rest-spread-properties.js b/test/tests-rest-spread-properties.js
-index 03cc148..79ab99b 100644
---- a/test/tests-rest-spread-properties.js
-+++ b/test/tests-rest-spread-properties.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- //------------------------------------------------------------------------------
-diff --git a/test/tests-trailing-commas-in-func.js b/test/tests-trailing-commas-in-func.js
-index ad2344c..143804f 100644
---- a/test/tests-trailing-commas-in-func.js
-+++ b/test/tests-trailing-commas-in-func.js
-@@ -2,7 +2,7 @@
- if (typeof exports != "undefined") {
-   var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
--  var acorn = require("../acorn");
-+  var acorn = require("acorn");
- }
- 
- //------------------------------------------------------------------------------
-diff --git a/test/tests.js b/test/tests.js
-index c894f87..3e9d75d 100644
 --- a/test/tests.js
 +++ b/test/tests.js
 @@ -4,7 +4,7 @@
- if (typeof exports != "undefined") {
+ if (typeof exports !== "undefined") {
    var driver = require("./driver.js");
-   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert, misMatch = driver.misMatch;
+   var test = driver.test, testFail = driver.testFail, testAssert = driver.testAssert;
 -  var acorn = require("../acorn");
 +  var acorn = require("acorn");
  }

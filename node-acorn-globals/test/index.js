@@ -43,11 +43,17 @@ test('assign_implicit.js - assign from an implicit global', function () {
 test('catch-pattern.js - pattern in catch', function () {
   assert.deepEqual(detect(read('catch-pattern.js')), []);
 });
+test('catch-without-error.js - catch without error', function () {
+  assert.deepEqual(detect(read('catch-without-error.js')), []);
+});
 test('class.js - ES2015 classes', function () {
   assert.deepEqual(detect(read('class.js')).map(nameOf), ['G', 'OtherClass_', 'SuperClass', 'this'].sort());
 });
 test('class-expression.js - class as expression', function () {
   assert.deepEqual(detect(read('class-expression.js')), []);
+});
+test('class-field-definition-this.js - this in field value', function () {
+  assert.deepEqual(detect(read('class-field-definition-this.js')), []);
 });
 test('default-argument.js - ES2015 default argument', function () {
   assert.deepEqual(detect(read('default-argument.js')).map(nameOf), ['c', 'h', 'j', 'k']);
@@ -131,6 +137,9 @@ test('return_hash.js - named argument / parameter', function () {
 });
 test('right_hand.js - globals on the right-hand of assignment', function () {
   assert.deepEqual(detect(read('right_hand.js')).map(nameOf), [ 'exports', '__dirname', '__filename' ].sort());
+});
+test('switch-statement.js - id in outer scope of switch is a global', function () {
+  assert.deepEqual(detect(read('switch-statement.js')).map(nameOf), ['a']);
 });
 test('try_catch.js - the exception in a try catch block is a local', function () {
   assert.deepEqual(detect(read('try_catch.js')), []);
